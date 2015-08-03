@@ -4,6 +4,7 @@ import MsgInput from '../components/msgInput';
 import {createStore, combineReducers, bindActionCreators} from 'redux';
 import {Provider} from 'react-redux';
 import * as reducers from '../reducers';
+import routes from './routes';
 
 const reducer = combineReducers(reducers);
 console.log(reducer);
