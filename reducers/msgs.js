@@ -1,4 +1,4 @@
-import {ADD_MSG} from '../constants/actionTypes';
+import {ADD_MSG} from '../constants/msgActionTypes';
 
 const initialState = [];
 

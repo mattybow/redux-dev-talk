@@ -1,1 +1,1 @@
-export const ADD_MSG = 'ADD_MSG';
+export const NEXT_SLIDE = 'NEXT_SLIDE';

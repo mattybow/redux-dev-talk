@@ -6,7 +6,7 @@ import * as msgActions from '../actions/msgActions';
 const inputStyle = {
   fontSize:'1.2em',
   padding:'1em',
-  borderRadius:'2px 0 0 2px',
+  borderRadius:'4px 0 0 4px',
   width:'100%',
   border:'1px solid grey',
   borderRight:0,
@@ -16,7 +16,7 @@ const inputStyle = {
 const buttonStyle = {
   padding:'5px 5%',
   fontSize:'1em',
-  borderRadius:'0 2px 2px 0',
+  borderRadius:'0 4px 4px 0',
   WebkitAppearance:'none',
   backgroundColor:'transparent',
   border:'1px solid slategrey'
@@ -40,7 +40,7 @@ class MsgInput{
   render(){
     //console.log(this.props);
     return (<div style={{display:'flex', margin:'40px 20px'}}>
-      <input style={inputStyle} onKeyUp={::this.handleKeyUp} type="text" ref="input" placeholder="add something to the list"/>
+      <input style={inputStyle} onKeyUp={::this.handleKeyUp} type="text" ref="input" placeholder="type something"/>
       <button style={buttonStyle} onClick={::this.handleClick}>ok</button>
     </div>);
   }
@@ -70,7 +70,7 @@ export default class MsgInputContainer{
     //console.log(this.context);
     const {dispatch} = this.props;
     return <div style={{margin:'20px'}}>
-      <h2>Redux Starter</h2>
+      <a href="https://github.com/mattybow/redux-starter"><h2>Redux Starter</h2></a>
       <MsgInput {...bindActionCreators(msgActions,dispatch)}/>
       <MsgDisplay messages={this.props.msgs} />
     </div>

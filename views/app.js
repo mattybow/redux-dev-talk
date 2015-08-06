@@ -1,19 +1,18 @@
 import React from 'react';
+import './normalize.css';
 import './app.scss';
-import MsgInput from '../components/msgInput';
-import {createStore, combineReducers, bindActionCreators} from 'redux';
+import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import * as reducers from '../reducers';
-import routes from './routes';
+import {Router} from 'react-router';
 
 const reducer = combineReducers(reducers);
-console.log(reducer);
 const store = createStore(reducer,[]);
 
 export default class App{
   render(){
     return (<Provider store={store}>
-      {()=><MsgInput />}
+      {()=><Router {...this.props.initialState} history={this.props.history} children={this.props.routes}/>}
     </Provider>);
   }
 }
