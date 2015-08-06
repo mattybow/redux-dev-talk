@@ -19,7 +19,15 @@ export default class Presentation{
   //     return;
   //   }
   // }
+  shouldComponentUpdate(nextProps){
+    console.log('SCU',nextProps);
+    if(nextProps.params.currentSlide!==this.props.params.currentSlide){
+      return true;
+    }
+    return false;
+  }
   componentDidMount(){
+    //console.log('presentaton mount');
     document.body.addEventListener('keydown',::this.handleKeyDown);
   }
   componentWillUnmount(){
@@ -59,7 +67,7 @@ export default class Presentation{
     return parseInt(slide);
   }
   render(){
-    console.log(this.props.slides);
+    console.log('PRESENTATION RENDER');
     const currentSlide = this.getCurSlide();
     return (<div style={{width:'100%',height:'100%'}}>
       <Slide data={this.props.slides[currentSlide]}/>

@@ -5,11 +5,23 @@ const initialState = [{
   format:'text'
 },
 {
+  contentKey:'s2',
+  format:'text'
+},
+{
   contentKey:'reduxIntro',
   format:'md'
 },
 {
   contentKey:'markdownSlide',
+  format:'md'
+},
+{
+  contentKey:'s2',
+  format:'text'
+},
+{
+  contentKey:'reduxIntro',
   format:'md'
 },
 {

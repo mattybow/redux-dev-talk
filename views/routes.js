@@ -14,6 +14,7 @@ export default (
   <Route component={PresentationContainer}>
     <Route path="/" component={Presentation} />
     <Route path="/slide/:currentSlide" component={Presentation} onEnter = {(nextState, transition) => {
+      console.log(nextState.params.currentSlide);
       const currentSlide = parseInt(nextState.params.currentSlide);
       const paramOk = (currentSlide && currentSlide < 200) || currentSlide===0;
       if(!paramOk){
