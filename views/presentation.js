@@ -11,8 +11,8 @@ const {LEFT, RIGHT, UP, DOWN} = {LEFT:37,RIGHT:39,UP:38,DOWN:40};
 }))
 export default class Presentation{
   static contextTypes = {
-      router: PropTypes.object.isRequired
-    };
+    router: PropTypes.object.isRequired
+  };
   // componentWillMount(){
   //   if(this.getCurSlide() >= this.props.slides.length){
   //     this.context.router.replaceWith('/notFound',null,{message:"that slide does not exist"});
@@ -20,7 +20,7 @@ export default class Presentation{
   //   }
   // }
   shouldComponentUpdate(nextProps){
-    console.log('SCU',nextProps);
+    //console.log('SCU',nextProps);
     if(nextProps.params.currentSlide!==this.props.params.currentSlide){
       return true;
     }
@@ -67,9 +67,9 @@ export default class Presentation{
     return parseInt(slide);
   }
   render(){
-    console.log('PRESENTATION RENDER');
+    //console.log(this.props);
     const currentSlide = this.getCurSlide();
-    return (<div style={{width:'100%',height:'100%'}}>
+    return (<div id="presentation" style={{width:'100%',height:'100%'}}>
       <Slide data={this.props.slides[currentSlide]}/>
     </div>);
   }

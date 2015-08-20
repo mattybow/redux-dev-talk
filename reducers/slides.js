@@ -5,7 +5,7 @@ const initialState = [{
   format:'text'
 },
 {
-  contentKey:'s2',
+  contentKey:'simplicity',
   format:'text'
 },
 {
@@ -13,27 +13,61 @@ const initialState = [{
   format:'md'
 },
 {
-  contentKey:'markdownSlide',
+  contentKey:'reactS1',
   format:'md'
 },
 {
-  contentKey:'s2',
+  contentKey:'reactOverview',
+  format:'jsx'
+},
+{
+  contentKey:'reactS2',
+  format:'md'
+},
+{
+  contentKey:'reactReferences',
+  format:'md'
+},
+{
+  contentKey:'fluxOverview',
+  format:'jsx'
+},
+{
+  contentKey:'reduxConcepts',
+  format:'md'
+},
+{
+  contentKey:'reducers',
   format:'text'
 },
 {
-  contentKey:'reduxIntro',
+  contentKey:'igAppDemoSlide',
+  format:'jsx'
+},
+{
+  contentKey:'concurrentActions',
+  format:'jsx'
+},
+{
+  contentKey:'middleware',
+  format:'text'
+},
+{
+  contentKey:'ssr',
+  format:'text'
+},
+{
+  contentKey:'msgInput',
+  format:'jsx'
+},
+{
+  contentKey:'reduxReferences',
   format:'md'
-},
-{
-  contentKey:'msgInput',   //DO NOT do this in production, class in not serializable for server rendering
-  format:'jsx'
-},
-{
-  contentKey:'testComp',   //DO NOT do this in production, class in not serializable for server rendering
-  format:'jsx'
 }
 ];
 
 export default function slides(state=initialState,action){
   return state;
 }
+
+//www.linkedin.com/in/mattybow

@@ -23,7 +23,7 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js?$/,
-      loaders: ['react-hot', 'babel'],
+      loaders: ['react-hot', 'babel?optional[]=runtime&stage=0'],
       exclude: /node_modules/
     }, {
       test: /\.css?$/,
@@ -31,6 +31,9 @@ module.exports = {
     }, {
       test: /\.scss?$/,
       loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
+    }, {
+      loader: 'url-loader?limit=100000',
+      test: /\.(gif|jpg|png|woff|woff2|eot|otf|ttf|svg)$/
     }]
   }
 };

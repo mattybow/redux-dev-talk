@@ -19,7 +19,8 @@ const buttonStyle = {
   borderRadius:'0 4px 4px 0',
   WebkitAppearance:'none',
   backgroundColor:'transparent',
-  border:'1px solid slategrey'
+  border:'1px solid slategrey',
+  textAlign:'center'
 }
 
 class MsgInput{
@@ -39,7 +40,7 @@ class MsgInput{
   }
   render(){
     //console.log(this.props);
-    return (<div style={{display:'flex', margin:'40px 20px'}}>
+    return (<div style={{display:'-webkit-flex', margin:'40px 20px'}}>
       <input style={inputStyle} onKeyUp={::this.handleKeyUp} type="text" ref="input" placeholder="type something"/>
       <button style={buttonStyle} onClick={::this.handleClick}>ok</button>
     </div>);

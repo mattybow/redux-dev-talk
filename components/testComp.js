@@ -22,10 +22,16 @@ export default class TestCompContainer extends Component{
   }
   render(){
     const testText = 'Ben';
+    let html = {__html:'<div class="child"></div>'};
     return <div>
+      <div dangerouslySetInnerHTML={html}/>
+      <div>
+        <div className="child"></div>
+      </div>
       <div>Parent State {this.state.updated}</div>
       <button onClick={::this.changeState}>update</button>
       <TestComp text={testText} />
+      {this.props.children}
     </div>
   }
 }

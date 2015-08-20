@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'paneuropa';
+  src: url('../../assets/fonts/PaneuropaNeueNormal.otf') format('opentype'),
+       url('../../assets/fonts/PaneuropaNeueNormal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+$ig-gold:rgb(173, 147, 34);
+a{
+	color:$ig-gold;
+}
+#igapp{
+	font-size:14px;
+}
+#ig-app-content{
+	max-width:1000px;
+	margin:auto;
+}
+.park-flex{
+	display:flex;
+	flex-flow:row wrap;
+	justify-content:center;
+}
+#auth-prompt{
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	background-color:rgba(255,255,255,.9);
+	display:flex;
+	flex-flow: column nowrap;
+	justify-content:center;
+	align-items:center;
+	text-align:center;
+}
+
+.ig-font{
+	font-family:'paneuropa';
+}
+
+#ig-header{
+	background-color:#fff;
+	padding:20px 5%;
+	border-bottom:1px solid #edeeee;
+}
+.ig-header-content > *{
+	flex:1 1 auto;
+}
+.igListItemImg{
+	height:300px;
+}
+.btn-default{
+	-webkit-appearance:none;
+	background-color:transparent;
+	border:1px solid rgba(173, 147, 34, 0.91);
+	border-radius:3px;
+	font-size:.8em;
+	padding:5px 10px;
+	color:$ig-gold;
+}
+.btn-large{
+	font-size:1.5em;
+	padding:10px 30px;
+}
+.list-info{
+	display:flex;
+	flex-flow:row nowrap;
+	align-items:flex-start;
+	width:100%;
+}

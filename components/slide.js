@@ -11,15 +11,6 @@ marked.setOptions({
   }
 });
 
-const slideStyle = {
-  display:'flex',
-  flexFlow:'row wrap',
-  alignItems:'center',
-  height:'100%',
-  justifyContent:'center',
-  padding:'0 50px'
-}
-
 function createMarkup(markdown) { return {__html: marked(markdown)}; };
 
 export default class Slide{
@@ -30,8 +21,9 @@ export default class Slide{
     switch (format){
       case 'md':
         let html = createMarkup(slideText[contentKey]);
-        console.log(html.__html);
-        content = <div className="slide-content" dangerouslySetInnerHTML={html}></div>;
+        content = (<div className="slide-content md">
+          <div dangerouslySetInnerHTML={html} />
+        </div>);
         break;
       case 'jsx':
         let ContentComponent= slideComponents[contentKey];
@@ -41,8 +33,9 @@ export default class Slide{
         content = (<div className="slide-content">
           <h1>{slideText[contentKey]}</h1>
         </div>);
+        break;
     }
-    return (<div className={classNames} style={slideStyle}>
+    return (<div className={classNames}>
       {content}
     </div>);
   }

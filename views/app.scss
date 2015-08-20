@@ -1,8 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300,700);
+
 body{
   font-family:"Lucida Grande", Helvetica, Arial, sans-serif;
   width:100%;
   height:100%;
   font-size:28px;
+  background-color:#eee;
 }
 hr{
   border:none;
@@ -20,7 +23,67 @@ a{
   li{
     margin-bottom:.5em;
     &:before{
-      content:'- ';
+      content:'○ ';
     }
+  }
+}
+#presentation{
+  h2{
+    border-top:1px solid rgba(0,0,0,.4);
+  }
+}
+.slideholder{
+  display:flex;
+  flex-flow:row wrap;
+  align-items:center;
+  height:100%;
+  justify-content:center;
+  padding:0 50px;
+}
+.slideholder>*{
+  flex:1 1 auto;
+}
+.full-height{
+  height:100%;
+}
+.references{
+  li{
+    display:flex;
+    flex-flow:row nowrap;
+    align-items: center;
+
+    &:before{
+      content:''
+    }
+
+    img{
+      max-height: 50px;
+      margin-right: 30px;
+      max-width: 50px;
+    }
+  }
+}
+.feed-photo-demo{
+  font-family: 'Lato', sans-serif;
+  font-weight:500;
+  font-size:16px;
+  max-width:500px;
+  border-radius:3px;
+}
+.flex-parent-row{
+  display:flex;
+  flex-flow:row nowrap;
+  align-items:center;
+}
+.flex-child-expand{
+  flex: 1 1 auto;
+}
+.feed-photo-header{
+  padding:15px 20px;
+  display:flex;
+  flex-flow:row nowrap;
+  align-items:center;
+  &>*{
+    flex: 1 1 auto;
   }
 }
