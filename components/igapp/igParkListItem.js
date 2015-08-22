@@ -1,15 +1,16 @@
 import React from 'react';
 import IgImg from './igImg';
+import IgFollowButton from './igFollowButton';
 import {Link} from 'react-router';
 import getParkAlias from '../../utils/removeSpaces';
 
 export default class IgParkListItem{
 	render(){
-		const {alias,city,state,imgPath} = this.props.parkData;
+		const {parkData:{alias,city,state,imgPath,id},isFollowing }= this.props;
 		const parkParam = getParkAlias(alias);
 		const parkUrl = `/igapp/park/${parkParam}`;
 		const parkImgPath = imgPath ? imgPath : "../assets/acadia-national-park.jpg";
-		return (<div style={{marginBottom:20, overflow:'hidden', width:'30%', margin:'10px'}}>
+		return (<div className="park-list-item">
 			
 			<div className="igListItemImg">
 				<Link to={parkUrl}>
@@ -22,7 +23,7 @@ export default class IgParkListItem{
 						<div>{alias}</div>
 						<div style={{fontSize:'.8em',textTransform:'uppercase',color:'rgba(0,0,0,.7)'}}>{city}-{state}</div>
 					</div>
-					<button className="btn-default">FOLLOWING</button>
+					<IgFollowButton parkId={id} size="sm" isFollowing={isFollowing}/>
 				</div>
 			</div>
 			

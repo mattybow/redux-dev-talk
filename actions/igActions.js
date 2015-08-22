@@ -3,21 +3,54 @@ import * as igApi from './igApi';
 
 const {
 	REQUEST_PARK_IMGS,
+	RECEIVE_PARK_IMGS,
+	REQUEST_PARK_IMGS_FAIL,
 	RECEIVE_API_KEY,
 	PROMPT_AUTH,
 	DISMISS_PROMPT_AUTH,
 	REQUEST_USER_INFO,
 	RECEIVE_USER_INFO,
 	REQUEST_USER_INFO_FAIL,
-	INVALIDATE_KEY
+	INVALIDATE_KEY,
+	FOLLOW_PARK,
+	UNFOLLOW_PARK,
+	SET_PARK_LIST_FILTER
 } = ACTION_TYPES
 
-export function fetchIfNeeded(igId){
-	return {
-		type:REQUEST_PARK_IMGS,
-		igId
+//-------REQUEST IG PHOTOS----------//
+export function fetchIfNeeded(parkId){
+	return (dispatch,getState) =>{
+		const state = getState();
+		const { apiKey } = state;
+		dispatch(requestPhotos());
+		igApi.getParkPhotos(apiKey, parkId)
+		.then(
+			res => {dispatch(receivePhotos(parkId, res.body.data))},
+			err => {dispatch(requestPhotosFail(err))}
+		);
 	}
 }
+
+function requestPhotos(){
+	return {
+		type:REQUEST_PARK_IMGS
+	};
+}
+
+function receivePhotos(parkId,data){
+	return {
+		type:RECEIVE_PARK_IMGS,
+		parkId,
+		data
+	}
+}
+
+function requestPhotosFail(){
+	return {
+		type:REQUEST_PARK_IMGS_FAIL
+	}
+}
+
 
 export function setApiKey(key){
 	return {
@@ -26,6 +59,7 @@ export function setApiKey(key){
 	}
 }
 
+//-------LOGIN LOGIC----------//
 export function promptAuth(){
 	return {
 		type:PROMPT_AUTH
@@ -84,5 +118,29 @@ export function fetchUserInfo(){
 				}
 			);
 		}
+	}
+}
+
+//-------FOLLOW LOGIC----------//
+export function followPark(parkId){
+	return {
+		type:FOLLOW_PARK,
+		parkId
+	}
+}
+
+export function unFollowPark(parkId){
+	return {
+		type:UNFOLLOW_PARK,
+		parkId
+	}
+}
+
+//-------PARK FILTER LOGIC----------//
+export function setParkFilter(...[name,term]){
+	return {
+		type:SET_PARK_LIST_FILTER,
+		name,
+		term
 	}
 }

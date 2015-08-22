@@ -101,7 +101,7 @@ export default class FluxOverview extends Component{
   render(){
     return <div className="full-height" style={{padding:'0 50px', position:'relative'}}>
       <h2 style={{marginTop:'3em'}}>Flux Overview</h2>
-      <p>Unidirectional Data Flow</p>
+      <p>Unidirectional DATA Flow</p>
       <Diagram>
         <Block name="action" highlightColor="papayawhip"/>
         <Arrow />

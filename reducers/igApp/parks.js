@@ -9,7 +9,10 @@ const {
 	FETCH_USER_FAIL,
 	INVALIDATE_KEY,
 	PROMPT_AUTH,
-	DISMISS_PROMPT_AUTH
+	DISMISS_PROMPT_AUTH,
+	FOLLOW_PARK,
+	UNFOLLOW_PARK,
+	SET_PARK_LIST_FILTER
 } = ACTION_TYPES;
 
 export function parks(state=parkList,action){
@@ -22,7 +25,8 @@ export function parks(state=parkList,action){
 export function parkPhotos(state={},action){
 	switch (action.type){
 		case RECEIVE_PARK_IMGS:
-			return {...state,...{[action.igId]:action.data}};
+			const newData = { [action.parkId]:action.data }
+			return {...state, ...newData};
 		default:
 			return state;
 	}
@@ -60,6 +64,27 @@ export function authPromptVisible(state=false,action){
 			return true;
 		case DISMISS_PROMPT_AUTH:
 			return false;
+		default:
+			return state;
+	}
+}
+
+export function follows(state=[],action){
+	switch (action.type){
+		case FOLLOW_PARK:
+			return [...state,action.parkId];
+		case UNFOLLOW_PARK:
+			return state.filter(parkId => (parkId !== action.parkId));
+		default:
+			return state;
+	}
+}
+
+export function parkListFilter(state={name:'all',term:''},action){
+	switch (action.type){
+		case SET_PARK_LIST_FILTER:
+			const {name,term} = action;
+			return {...state,...{name,term}};
 		default:
 			return state;
 	}

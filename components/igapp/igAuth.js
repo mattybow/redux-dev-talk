@@ -21,7 +21,7 @@ class AuthPrompt{
 				<div style={{fontSize:'3em'}} className="ig-font">Ig parks </div>
 				<div style={{fontSize:'1.5em', padding:'10px 0 30px',width:'50%'}}>requires Instagram Login</div>
 				<a href={oauthPath}>
-					<button className="btn-default btn-large">authorize</button>
+					<button className="btn-default btn-xl">authorize</button>
 				</a>
 				<div style={{marginTop:15}}><a href="" onClick={::this.handleDismissClick}>no thanks</a></div>
 			</div>);

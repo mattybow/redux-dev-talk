@@ -5,12 +5,16 @@
   font-weight: normal;
   font-style: normal;
 }
-$ig-gold:rgb(173, 147, 34);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600);
+$ig-gold:#B59C31;
 a{
 	color:$ig-gold;
 }
 #igapp{
-	font-size:14px;
+	font-size:16px;
+	background-color:#F7F7F7;
+	font-family: 'Source Sans Pro', sans-serif;
+	min-height:100%;
 }
 #ig-app-content{
 	max-width:1000px;
@@ -20,6 +24,17 @@ a{
 	display:flex;
 	flex-flow:row wrap;
 	justify-content:center;
+}
+.flex-parent-row{
+  display:flex;
+  flex-flow:row nowrap;
+  align-items:center;
+}
+.flex-row-top{
+	align-items:flex-start;
+}
+.flex-child-expand{
+  flex: 1 1 auto;
 }
 #auth-prompt{
 	position:fixed;
@@ -53,19 +68,119 @@ a{
 .btn-default{
 	-webkit-appearance:none;
 	background-color:transparent;
-	border:1px solid rgba(173, 147, 34, 0.91);
+	border:1px solid $ig-gold;
 	border-radius:3px;
 	font-size:.8em;
 	padding:5px 10px;
 	color:$ig-gold;
+	outline:none;
+	min-width:87px;
+
+	&.active{
+		color:#fff;
+		background-color:$ig-gold;
+	}
 }
-.btn-large{
-	font-size:1.5em;
+.btn-lg{
+	font-size:1.2em;
 	padding:10px 30px;
+}
+.btn-xl{
+	font-size:2em;
+	padding:15px 80px;
 }
 .list-info{
 	display:flex;
 	flex-flow:row nowrap;
 	align-items:flex-start;
 	width:100%;
+}
+.park-list-item{
+	margin-bottom:20px;
+	overflow:hidden;
+	width:31%;
+	min-width: 300px;
+	margin:10px;
+}
+.park-photo-viewer{
+	justify-content:center;
+}
+.park-photo{
+	width:31%;
+	margin:10px;
+}
+.park-filters{
+	justify-content:flex-end;
+	margin:10px 15px 0 15px;
+	.active{
+		color:$ig-gold;
+	}
+	.inactive{
+		color:rgba(0,0,0,.5);
+		&:hover{
+			color:rgba(0,0,0,1);
+		}
+	}
+}
+.park-view{
+	padding:0 50px;
+}
+.filter{
+	padding:0 20px;
+	border-left:1px solid rgba(100,100,100,.3);
+	cursor:pointer;
+	&:last-child{
+		padding-right:0;
+	}
+}
+.search-box-container{
+	text-align:right;
+	margin-right:20px;
+}
+#search-box{
+	border:none;
+	padding:5px 0;
+	background-color:transparent;
+	border-radius:30px;
+	outline:none;
+	width:45px;
+	color:black;
+	transition:width .3s ease, background .2s ease, padding .2s ease;
+
+	&.inactive{
+		&::-webkit-input-placeholder{
+			color:rgba(0,0,0,.5);
+		}
+		&:hover{
+			cursor:pointer;
+			&::-webkit-input-placeholder{
+				color:rgba(0,0,0,1);
+			}
+		}
+	}
+
+	
+
+	&.active{
+		background-color:#fff;
+		padding:5px 20px;
+		width:100%;
+		&::-webkit-input-placeholder {
+		   color: $ig-gold;
+		}
+	}
+}
+@media (max-width:414px){
+	.park-list-item{
+		width:100%;
+		margin:0;
+		margin:10px 0;
+	}
+	.park-photo{
+		width:100%;
+		margin: 10px 0;
+	}
+	.park-view{
+		padding:0 20px;
+	}
 }

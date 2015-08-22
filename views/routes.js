@@ -9,13 +9,14 @@ const {
     IgApp,
     ParkList,
     ParkPage,
-    AuthResult
+    AuthResult,
+    Profile
   } = IgPages;
 
 
 class PresentationContainer{
   render(){
-    return <div>{this.props.children}</div>
+    return <div style={{minHeight:'100%'}}>{this.props.children}</div>
   }
 }
 
@@ -45,6 +46,7 @@ export default (
       <Route path="parks" component={ParkList} />
       <Route path="park/:alias" component={ParkPage} />
       <Route path="authResult" component={AuthResult} />
+      <Route path="profile" component={Profile} />
     </Route>
     <Route path="*" name="notfound" component={NotFound}/>
   </Route>

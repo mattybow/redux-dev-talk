@@ -5,3 +5,6 @@ export {default as IgParkPhotoViewer} from './igapp/igParkPhotoViewer';
 export {default as IgPhotoDemo} from './igapp/igPhotoDemo';
 export {default as IgPhotoViewer} from './igapp/igPhotoViewer';
 export {default as IgAuth} from './igapp/igAuth';
+export {default as NeedsLogin} from './igapp/needsLogin';
+export {default as IgParkInfo} from './igapp/igParkInfo';
+export {default as IgParkSearch} from './igapp/igParkSearch';

@@ -1,31 +1,34 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import IgPhotoViewer from './igPhotoViewer';
+import NeedsLogin from './needsLogin';
 import * as igActions from '../../actions/igActions';
 
 function selectPhotosForPark(state,props){
-	const park = props.igId;
+	const {parkId} = props;
 	return {
-		photoData:state.parkPhotos[park]
+		photoData:state.parkPhotos[parkId]
 	}
 }
 
 class IgParkPhotoViewer{
 	fetch(){
 		const {fetchIfNeeded} = igActions;
-		const {igId,dispatch} = this.props;
-		dispatch(fetchIfNeeded(igId));
+		const {parkId,dispatch} = this.props;
+		dispatch(fetchIfNeeded(parkId));
 	}
 	componentWillMount(){
 		this.fetch();
 	}
 	componentWillReceiveProps(nextProps){
-		if(nextProps.igId !== this.props.igId){
+		if(nextProps.parkId !== this.props.parkId){
 			this.fetch();
 		}
 	}
 	render(){
-		return <IgPhotoViewer data={this.props.photoData || []} />
+		return <NeedsLogin msg="sorry, you need to login to access this portion of the app">
+			<IgPhotoViewer data={this.props.photoData || []} />
+		</NeedsLogin>
 	}
 }
 

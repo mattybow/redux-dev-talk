@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {IgParkPhotoViewer} from '../../components/igComps';
-import NeedsLoginWrapper from './needsLogin';
+import {IgParkPhotoViewer, IgParkInfo} from '../../components/igComps';
 import getParkAlias from '../../utils/removeSpaces';
 
 function getPark(alias,parks){
@@ -26,12 +25,10 @@ class ParkPage{
 		let park = getPark(alias,parks);	//try to match route param with known list of parks
 
 		if(park.length === 1){				//we have a match
-			const {name, id} = park[0];
-			return <div style={{padding:'0 50px'}}>
-				<h2>{name}</h2>
-				<NeedsLoginWrapper msg="sorry, you need to login to access this portion of the app">
-					<IgParkPhotoViewer igId={id} />
-				</NeedsLoginWrapper>
+			const {id} = park[0];
+			return <div className="park-view">
+				<IgParkInfo parkId={id} />
+				<IgParkPhotoViewer parkId={id} />
 			</div>;
 		} else if (park.length > 1){		//we matched more than one, ask for user input
 			return (<div>
