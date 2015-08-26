@@ -62,12 +62,12 @@ export function user(state=userInitialState,action){
   }
 }
 
-export function authPromptVisible(state=false,action){
+export function authPrompt(state={isVisible:false,hasShown:false},action){
   switch (action.type){
     case PROMPT_AUTH:
-      return true;
+      return {isVisible:true,hasShown:true};
     case DISMISS_PROMPT_AUTH:
-      return false;
+      return {...state,...{isVisible:false}};
     default:
       return state;
   }

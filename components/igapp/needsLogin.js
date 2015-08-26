@@ -10,8 +10,8 @@ function selectLoginInfo(state){
 class NeedsLogin{
 	componentDidMount(){
 		if(!this.props.apiKey){
-			const { promptAuth } = igActions;
-			this.props.dispatch(promptAuth());
+			const { promptAuthIfNeeded } = igActions;
+			this.props.dispatch(promptAuthIfNeeded());
 		}
 	}
 	render(){

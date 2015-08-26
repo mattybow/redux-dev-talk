@@ -4,7 +4,7 @@ import * as igActions from '../../actions/igActions';
 
 function selectAuthPrompt(state){
 	//console.log(state.authPromptVisible);
-	return {authPromptVisible:state.authPromptVisible};
+	return {authPrompt:state.authPrompt};
 }
 
 class AuthPrompt{
@@ -14,7 +14,7 @@ class AuthPrompt{
 		this.props.dispatch(dismissAuth());
 	}
 	render(){
-		if(this.props.authPromptVisible){
+		if(this.props.authPrompt.isVisible){
 			localStorage.setItem('igAppRedirectPathAfterOath', document.location.pathname);			//so we can return user to where they originally navigated to after oath redirect
 			const oauthPath = `https://instagram.com/oauth/authorize/?client_id=1ca62ea2e3dc4fc5a9305493e5105f85&redirect_uri=http://localhost:5000/igapp/authResult&response_type=token`;
 			return (<div id="auth-prompt">

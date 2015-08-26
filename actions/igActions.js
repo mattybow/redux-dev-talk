@@ -64,6 +64,15 @@ export function setApiKey(key){
 }
 
 //-------LOGIN LOGIC----------//
+export function promptAuthIfNeeded(){
+	return (dispatch,getState) =>{
+		const {authPrompt:{hasShown}} = getState();
+		if(!hasShown) {
+			dispatch(promptAuth());
+		}
+	}
+}
+
 export function promptAuth(){
 	return {
 		type:PROMPT_AUTH
