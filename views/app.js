@@ -10,8 +10,8 @@ import {Router} from 'react-router';
 
 const reducer = combineReducers(reducers);
 //const store = createStore(reducer,[]);
-const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
-const store = createStoreWithMiddleware(reducer,[]);
+const createStoreWithMiddleware = applyMiddleware(thunk,logger)(createStore);
+const store = createStoreWithMiddleware(reducer,{});
 
 export default class App{
   render(){

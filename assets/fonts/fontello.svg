@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2015 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="instagramm" unicode="&#xe801;" d="m760 54v362h-75q11-35 11-73 0-71-36-130t-97-94-134-35q-110 0-188 76t-78 183q0 38 11 73h-79v-362q0-14 10-24t25-10h596q14 0 24 10t10 24z m-158 298q0 69-51 118t-122 49q-71 0-121-49t-51-118 51-118 121-49q72 0 122 49t51 118z m158 201v92q0 15-11 27t-27 11h-98q-16 0-27-11t-11-27v-92q0-17 11-28t27-11h98q16 0 27 11t11 28z m97 116v-638q0-45-32-77t-78-33h-637q-45 0-78 33t-32 77v638q0 45 32 77t78 33h637q45 0 78-33t32-77z" horiz-adv-x="857.1" />
+<glyph glyph-name="home" unicode="&#xe805;" d="m807 382l-300 218c-7 5-17 5-24 0l-300-218c-8-6-10-19-4-28 7-9 19-11 28-4l39 28v-274c0-11 9-20 20-20h162c11 0 20 9 20 20v188h94v-188c0-11 9-20 20-20h162c11 0 20 9 20 20v274l39-28c4-3 8-4 12-4 6 0 12 3 16 8 7 9 5 22-4 28z m-103-258h-122v188c0 11-8 20-20 20h-134c-11 0-20-9-20-20v-188h-122v283l209 152 209-152v-283z" horiz-adv-x="1000" />
+<glyph glyph-name="map-pin" unicode="&#xe806;" d="m489 47c3-6 10-9 16-9h0c7 0 13 3 17 9l189 280c22 36 34 78 34 120 0 127-108 231-240 231s-240-104-240-231c0-42 12-84 35-120l189-280z m16 591c110 0 200-86 200-191 0-35-10-69-28-98l-172-255-171 254c-19 30-29 64-29 99 0 105 90 191 200 191z m0-300c63 0 114 49 114 110s-51 110-114 110-114-50-114-110 51-110 114-110z m0 180c41 0 74-32 74-70s-33-70-74-70-74 31-74 70 33 70 74 70z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

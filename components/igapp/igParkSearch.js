@@ -17,7 +17,7 @@ class IgParksFilter{
 		this.props.dispatch(setParkFilter(name, value));
 	}
 	render(){
-		return <div className="flex-parent-row park-filters">
+		return <div className="flex-parent-row park-filters flex-child-expand">
 			{this.renderSearch('search')}
 			{this.renderToggle('all')}
 			{this.renderToggle('following')}

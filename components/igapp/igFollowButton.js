@@ -4,7 +4,8 @@ import NeedsLogin from './needsLogin';
 import * as igActions from '../../actions/igActions';
 
 class IgFollowButton{
-	handleFollowClick(){
+	handleFollowClick(e){
+		e.stopPropagation();
 		const {isFollowing, dispatch, parkId} = this.props;
 		const {followPark, unFollowPark} = igActions;
 		if (isFollowing) {

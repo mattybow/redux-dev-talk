@@ -7,7 +7,7 @@ import './highlight.css';
 
 marked.setOptions({
   highlight: function (code) {
-    return require('highlight.js').highlightAuto(code).value;
+    return require('highlight.js').highlight('javascript',code).value;
   }
 });
 

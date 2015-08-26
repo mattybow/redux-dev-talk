@@ -17,3 +17,9 @@ export const FOLLOW_PARK 				= 'FOLLOW_PARK';
 export const UNFOLLOW_PARK 				= 'UNFOLLOW_PARK';
 
 export const SET_PARK_LIST_FILTER 		= 'SET_PARK_LIST_FILTER';
+
+export const DISPLAY_LOGOUT 			= 'DISPLAY_LOGOUT';
+export const UNDISPLAY_LOGOUT 			= 'UNDISPLAY_LOGOUT';
+
+export const ADD_LIKED_PHOTO 			='ADD_LIKED_PHOTO';
+export const REMOVE_LIKED_PHOTO 		='REMOVE_LIKED_PHOTO';

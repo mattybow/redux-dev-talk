@@ -5,7 +5,6 @@ import './igApp.scss';
 
 export default class IgApp extends React.Component{
 	render(){
-		console.log('IGAPP render',this.props);
 		return (<div id="igapp">
 			<IgAuth/>
 			<IgAppHeader/>

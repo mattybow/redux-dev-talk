@@ -4,3 +4,8 @@ export {default as reactOverview} from './reactOverview';
 export {default as fluxOverview} from './fluxOverview';
 export {default as concurrentActions} from './concurrentActions';
 export {default as igAppDemoSlide} from './igAppDemoSlide';
+export {default as reactComponents} from './reactComponents';
+export {default as reactStateAndProps} from './reactStateAndProps';
+export {default as counter} from './counter';
+export {default as reduxOverview} from './reduxOverview';
+export {default as reducersToStore} from './reducersToStore';

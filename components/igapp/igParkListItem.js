@@ -17,7 +17,7 @@ export default class IgParkListItem{
 					<IgImg src={parkImgPath} useBgImg={true}/>
 				</Link>
 			</div>
-			<div className="flex-parent-row" style={{padding:'10px 10px 10px 15px',backgroundColor:'rgba(255,255,255,.3)',minHeight:50, borderBottom:'1px solid rgba(0,0,0,.1)'}}>
+			<div className="flex-parent-row" style={{padding:'10px 10px 10px 15px',backgroundColor:'rgba(255,255,255,.3)',minHeight:56, borderBottom:'1px solid rgba(0,0,0,.1)'}}>
 				<div className="list-info">
 					<div className="flex-child-expand">
 						<div>{alias}</div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {IgParkListItem, IgParkSearch} from '../../components/igComps';
+import {IgParkListItem, IgParkSearch, IgNav} from '../../components/igComps';
 import reduce from 'lodash/collection/reduce';
 
 @connect(state => {
@@ -32,7 +32,10 @@ export default class ParkList{
 
 	render(){
 		return (<div>
-			<IgParkSearch/>
+			<div className="park-list-ctrls flex-parent-row">
+				<IgNav activeLink="parks"/>
+				<IgParkSearch/>
+			</div>
 			<div className="park-flex">
 			{this.renderList()}
 			</div>

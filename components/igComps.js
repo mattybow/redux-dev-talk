@@ -8,3 +8,7 @@ export {default as IgAuth} from './igapp/igAuth';
 export {default as NeedsLogin} from './igapp/needsLogin';
 export {default as IgParkInfo} from './igapp/igParkInfo';
 export {default as IgParkSearch} from './igapp/igParkSearch';
+export {default as IgNav} from './igapp/igNav';
+export {default as IgProfile} from './igapp/igProfile';
+export {default as IgFollowList} from './igapp/igFollowList';
+export {default as IgLikedList} from './igapp/igLikedList';

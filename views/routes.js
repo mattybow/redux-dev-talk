@@ -3,6 +3,7 @@ import App from './app';
 import Presentation from './presentation';
 import NotFound from './notFound';
 import {Route} from 'react-router';
+import {IgFollowList, IgLikedList} from '../components/igComps';
 
 import * as IgPages from './igPages'
 const {
@@ -10,7 +11,8 @@ const {
     ParkList,
     ParkPage,
     AuthResult,
-    Profile
+    Profile,
+    Feed
   } = IgPages;
 
 
@@ -42,11 +44,18 @@ export default (
         transition.to('/notfound', null ,{badPath:nextState.location.pathname,errorMsg:'slide does not exist'});
       }
     }}/>
+    <Route component={IgApp}>
+      <Route path="igapp" component={Feed} />
+    </Route>
     <Route path="/igapp" component={IgApp}>
+      <Route path="/" component={Profile} />
       <Route path="parks" component={ParkList} />
       <Route path="park/:alias" component={ParkPage} />
       <Route path="authResult" component={AuthResult} />
-      <Route path="profile" component={Profile} />
+      <Route path="profile" component={Profile} >
+        <Route path="following" component={IgFollowList} />
+        <Route path="liked" component={IgLikedList} />
+      </Route>
     </Route>
     <Route path="*" name="notfound" component={NotFound}/>
   </Route>

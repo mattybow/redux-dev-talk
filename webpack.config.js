@@ -3,6 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval',
+  //devtool: 'eval-source-map',
   entry: [
     'webpack-dev-server/client?http://localhost:5000',
     'webpack/hot/only-dev-server',
@@ -33,7 +34,7 @@ module.exports = {
       loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
     }, {
       loader: 'url-loader?limit=100000',
-      test: /\.(gif|jpg|png|woff|woff2|eot|otf|ttf|svg)$/
+      test: /\.(gif|jpg|png|woff.*|woff2|eot.*|otf.*|ttf.*|svg)$/
     }]
   }
 };

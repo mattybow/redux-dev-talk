@@ -3,10 +3,6 @@ export default [{
   format:'text'
 },
 {
-  contentKey:'simplicity',
-  format:'text'
-},
-{
   contentKey:'reduxIntro',
   format:'md'
 },
@@ -15,7 +11,19 @@ export default [{
   format:'md'
 },
 {
-  contentKey:'reactOverview',
+  contentKey:'reactComponents',
+  format:'jsx'
+},
+{
+  contentKey:'render',
+  format:'md'
+},
+{
+  contentKey:'reactStateAndProps',
+  format:'jsx'
+},
+{
+  contentKey:'reactComponents',
   format:'jsx'
 },
 {
@@ -23,7 +31,35 @@ export default [{
   format:'md'
 },
 {
+  contentKey:'componentLifeCycle',
+  format:'md'
+},
+{
+  contentKey:'shouldComponentUpdate',
+  format:'md'
+},
+{
   contentKey:'reactReferences',
+  format:'md'
+},
+{
+  contentKey:'removingDataFromComponents1',
+  format:'md'
+},
+{
+  contentKey:'removingDataFromComponents2',
+  format:'md'
+},
+{
+  contentKey:'removingDataFromComponents3',
+  format:'md'
+},
+{
+  contentKey:'removingDataFromComponents4',
+  format:'md'
+},
+{
+  contentKey:'removingDataFromComponents5',
   format:'md'
 },
 {
@@ -31,28 +67,80 @@ export default [{
   format:'jsx'
 },
 {
+  contentKey:'fluxStore',
+  format:'md'
+},
+{
+  contentKey:'reducers1',
+  format:'md'
+},
+{
+  contentKey:'reducers2',
+  format:'md'
+},
+{
+  contentKey:'reducers3',
+  format:'md'
+},
+{
+  contentKey:'reducers4',
+  format:'md'
+},
+{
+  contentKey:'reducersFlux',
+  format:'text'
+},
+{
+  contentKey:'reduxParts',
+  format:'md'
+},
+{
+  contentKey:'fluxOverview',
+  format:'jsx'
+},
+{
+  contentKey:'reduxOverview',
+  format:'jsx'
+},
+{
+  contentKey:'reducersToStore',
+  format:'jsx'
+},
+{
   contentKey:'reduxConcepts',
   format:'md'
 },
 {
-  contentKey:'reducers',
-  format:'text'
+  contentKey:'singleStore',
+  format:'md'
 },
 {
   contentKey:'igAppDemoSlide',
   format:'jsx'
 },
 {
-  contentKey:'concurrentActions',
-  format:'jsx'
+  contentKey:'reactRedux',
+  format:'md'
 },
 {
-  contentKey:'middleware',
-  format:'text'
+  contentKey:'middleware1',
+  format:'md'
 },
 {
-  contentKey:'ssr',
-  format:'text'
+  contentKey:'middleware2',
+  format:'md'
+},
+{
+  contentKey:'asyncOperations',
+  format:'md'
+},
+{
+  contentKey:'ssr1',
+  format:'md'
+},
+{
+  contentKey:'ssr2',
+  format:'md'
 },
 {
   contentKey:'msgInput',
@@ -61,5 +149,13 @@ export default [{
 {
   contentKey:'reduxReferences',
   format:'md'
+},
+{
+  contentKey:'thanks',
+  format:'text'
+},
+{
+  contentKey:'counter',
+  format:'jsx'
 }
 ]

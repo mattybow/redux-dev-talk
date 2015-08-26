@@ -36,14 +36,14 @@ export default class Presentation{
   handleKeyDown(e){
     const whichKey = e.which;
     let curSlide= this.getCurSlide();
-    if( whichKey >= 37 && whichKey <= 40){
-      e.preventDefault();
-    }
+
     switch (e.which){
-      case LEFT:
+      case UP:
+        e.preventDefault();
         this.prevSlide(curSlide);
         break;
-      case RIGHT:
+      case DOWN:
+        e.preventDefault();
         this.nextSlide(curSlide);
         break;
       default:

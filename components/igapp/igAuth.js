@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import * as igActions from '../../actions/igActions';
 
 function selectAuthPrompt(state){
-	console.log(state.authPromptVisible);
+	//console.log(state.authPromptVisible);
 	return {authPromptVisible:state.authPromptVisible};
 }
 

@@ -7,6 +7,64 @@
 }
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600);
 $ig-gold:#B59C31;
+@font-face {
+  font-family: 'fontello';
+  src: url('../../assets/fonts/fontello.eot?20431582');
+  src: url('../../assets/fonts/fontello.eot?20431582#iefix') format('embedded-opentype'),
+       url('../../assets/fonts/fontello.woff?20431582') format('woff'),
+       url('../../assets/fonts/fontello.ttf?20431582') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?20431582#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-instagram:before { content: '\e801'; } /* '' */
+.icon-home:before { content: '\e805'; } /* '' */
+.icon-map-pin:before { content: '\e806'; } /* '' */
 a{
 	color:$ig-gold;
 }
@@ -20,6 +78,24 @@ a{
 	max-width:1000px;
 	margin:auto;
 }
+#ig-nav{
+	margin:0 15px;
+}
+.ig-nav-links{
+	&:first-child{
+		padding-right:15px;
+		border-right:1px solid rgba(100,100,100,.3);
+	}
+	&:last-child{
+		padding-left:15px;
+	}
+	&.inactive > a{
+		color:rgba(0, 0, 0, 0.5);
+		&:hover{
+			color:rgba(0, 0, 0, 1);
+		}
+	}
+}
 .park-flex{
 	display:flex;
 	flex-flow:row wrap;
@@ -30,6 +106,7 @@ a{
   flex-flow:row nowrap;
   align-items:center;
 }
+
 .flex-row-top{
 	align-items:flex-start;
 }
@@ -106,12 +183,14 @@ a{
 	justify-content:center;
 }
 .park-photo{
+	position:relative;
 	width:31%;
 	margin:10px;
+	cursor:pointer;
 }
 .park-filters{
 	justify-content:flex-end;
-	margin:10px 15px 0 15px;
+	margin:0 15px;
 	.active{
 		color:$ig-gold;
 	}
@@ -122,8 +201,11 @@ a{
 		}
 	}
 }
+.park-list-ctrls{
+	margin:15px 0 0 0;
+}
 .park-view{
-	padding:0 50px;
+	padding:0 20px;
 }
 .filter{
 	padding:0 20px;
@@ -136,6 +218,27 @@ a{
 .search-box-container{
 	text-align:right;
 	margin-right:20px;
+}
+#logout-button{
+	cursor:pointer;
+}
+.login-logout{
+	padding:6px 0;
+}
+.user-full-name{
+	font-weight:400;
+	font-size:2.2em;
+	text-transform:lowercase;
+}
+.user-info{
+	margin-left:20px;
+}
+#profile-info{
+	display:flex;
+	flex-flow:row nowrap;
+	align-items: flex-start;
+	margin-top:40px;
+	padding:0 20px;
 }
 #search-box{
 	border:none;
@@ -168,6 +271,52 @@ a{
 		&::-webkit-input-placeholder {
 		   color: $ig-gold;
 		}
+	}
+}
+.stat-block{
+	margin:0 25px;
+	text-align:center;
+
+	&:last-child{
+		margin-right:0;
+	}
+}
+.stat-blocks{
+	justify-content:flex-end;
+	margin-top:10px;
+}
+.photo-overlay{
+	position:absolute;
+	opacity:0;
+	background-color:rgba(0,0,0,.3);
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	transition:opacity .2s ease;
+	display:flex;
+	flex-flow: row nowrap;
+	align-items:center;
+	justify-content:center;
+	&:hover{
+		opacity:1
+	}
+}
+.heart-svg{
+	opacity:.4;
+	transition: opacity .2s ease;
+	&:hover{
+		opacity:.8;
+	}
+}
+#follow-list{
+	margin-top:30px;
+}
+.follow-list-item{
+	padding:10px 20px;
+	border-bottom:1px solid rgba(0,0,0,.1);
+	a{
+		color:black;
 	}
 }
 @media (max-width:414px){

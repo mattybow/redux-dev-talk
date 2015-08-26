@@ -14,7 +14,11 @@ const {
 	INVALIDATE_KEY,
 	FOLLOW_PARK,
 	UNFOLLOW_PARK,
-	SET_PARK_LIST_FILTER
+	SET_PARK_LIST_FILTER,
+	DISPLAY_LOGOUT,
+	UNDISPLAY_LOGOUT,
+	ADD_LIKED_PHOTO,
+  REMOVE_LIKED_PHOTO
 } = ACTION_TYPES
 
 //-------REQUEST IG PHOTOS----------//
@@ -144,3 +148,84 @@ export function setParkFilter(...[name,term]){
 		term
 	}
 }
+
+//-------LOGOUT---------------//
+export function displayLogout(){
+	return {
+		type: DISPLAY_LOGOUT
+	}
+}
+export function undisplayLogout(){
+	return {
+		type: UNDISPLAY_LOGOUT
+	}
+}
+export function logout(){
+	return {
+		type: INVALIDATE_KEY
+	}
+}
+
+//--------LIKE LOGIC-------------//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*export function addLikedPhoto(photo){
+	return {
+		type: ADD_LIKED_PHOTO,
+		photo 
+	}
+}
+export function removeLikedPhoto(photo){
+	return {
+		type: REMOVE_LIKED_PHOTO,
+		photo
+	}
+}*/
