@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 
-export default class ReactButton {
+/*export default class ReactButton {
 	render(){
 		return <div style={{margin:'0 10px'}}>
 			<button 
 				className="btn-default">
-				HELLO
+				Hjjhkh
 			</button>
 		</div>;
 	}
-}
+}*/
 
 
 /*export default class ReactButton extends Component{
@@ -33,7 +33,7 @@ export default class ReactButton {
 	}
 }*/
 
-/*export default class ReactButton{
+export default class ReactButton{
 	render(){
 		const buttonState = `btn-default ${this.props.isActive ? 'active' : 'inactive'}`;
 		return <div style={{margin:'0 10px'}}>
@@ -44,4 +44,4 @@ export default class ReactButton {
 			</button>
 		</div>;
 	}
-}*/
+}

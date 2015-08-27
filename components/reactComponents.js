@@ -9,17 +9,17 @@ const textButtons = "i want to try redux".split(' ')
                     );
 
 
-export default class ReactComponents {
+/*export default class ReactComponents {
   render(){
     return <div>
-      <h2>React COMPONENT</h2>
+      <h2>React klgkg</h2>
       <ReactButton />
     </div>;
   }
 }
+*/
 
-
-/*class Header{
+class Header{
  render(){
    return <div style={{display:'flex', alignItems:'center'}}>
      <h3 style={{margin:20}}>react buttons</h3>
@@ -28,7 +28,7 @@ export default class ReactComponents {
  }
 }
 
-export default class ReactComponents extends Component{
+/*export default class ReactComponents extends Component{
   constructor(props){
     super(props);
     this.state = {textButtons};
@@ -49,7 +49,7 @@ export default class ReactComponents extends Component{
   }
 }*/
 
-/*export default class ReactComponents extends Component{
+export default class ReactComponents extends Component{
   constructor(props){
     super(props);
     this.state = {textButtons};
@@ -81,4 +81,4 @@ export default class ReactComponents extends Component{
       </Header>
     </div>
   }
-}*/
+}

@@ -177,9 +177,19 @@ export function logout(){
 
 //--------LIKE LOGIC-------------//
 
+export function addLikedPhoto(photo){
+	return {
+		type:ADD_LIKED_PHOTO,
+		photo
+	}
+}
 
-
-
+export function removeLikedPhoto(photo){
+	return {
+		type:ADD_LIKED_PHOTO,
+		photo
+	}
+}
 
 
 

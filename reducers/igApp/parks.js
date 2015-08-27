@@ -108,9 +108,9 @@ export function displayLogout(state=false,action){
 export function likes(state=[],action){
   switch (action.type){
     case ADD_LIKED_PHOTO:
-      return state;
+      return [...state,action.photo];
     case REMOVE_LIKED_PHOTO:
-      return state;
+      return state.filter(photo=>(photo.id !== action.photo.id));
     default:
       return state;
   }

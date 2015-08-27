@@ -6,14 +6,19 @@ import find from 'lodash/collection/find';
 import {addLikedPhoto, removeLikedPhoto} from '../../actions/igActions';
 
 function selectIsLiked(state,props){
-	const isLiked = false;
+	const isLiked = find(state.likes,
+		photo=>(photo.id === props.photoData.id)) ? true : false;
 	return {isLiked};
 }
 
 class ParkPhoto{
 	clickHandler(){
 		const {isLiked, photoData} = this.props;
-		console.log('LIKE PARK PHOTO');
+		if(isLiked){
+			this.removeLiked(photoData);
+		} else {
+			this.addLiked(photoData);
+		}
 	}
 	addLiked(photo){
 		this.props.dispatch(addLikedPhoto(photo));

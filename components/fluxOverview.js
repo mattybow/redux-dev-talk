@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MultiBlock from './multiBlock';
 import Diagram from './diagram';
 import Arrow from './arrow';
+import Instructions from './instructions';
 
 
 export default class FluxOverview{
@@ -24,6 +25,7 @@ export default class FluxOverview{
         <Arrow />
         <MultiBlock forSlide="fluxOverview" name="view"/>
       </Diagram>
+      <Instructions/>
     </div>
   }
 }

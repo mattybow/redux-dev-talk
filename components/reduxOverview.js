@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import MultiBlock from './multiBlock';
 import Diagram from './diagram';
 import Arrow from './arrow';
+import Instructions from './instructions';
 
 export default class ReduxOverview{
 	render(){
@@ -25,6 +26,7 @@ export default class ReduxOverview{
         <Arrow />
         <MultiBlock forSlide="reduxOverview" name="view"/>
       </Diagram>
+      <Instructions/>
 		</div>
 	}
 }

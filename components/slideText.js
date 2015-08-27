@@ -282,9 +282,11 @@ connect(select)(Component)
 \`\`\`
 
 - links component to store
-- \`connect\`'s first arg is a (state,props) => {}
+- \`connect\`'s first arg is a (state,props) => {} 
 - allows you to customize the state your component sees
+- injects the result into props
 - this is what \`shouldComponentUpdate\` sees
+- injects \`dispatch()\` into props
 - this is where you can derive data
 - reruns when store updates
 `,
