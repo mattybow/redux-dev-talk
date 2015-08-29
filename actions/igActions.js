@@ -26,26 +26,45 @@ export function fetchIfNeeded(parkId){
 	return (dispatch,getState) =>{
 		const state = getState();
 		const { apiKey } = state;
-		dispatch(requestPhotos());
+		dispatch(requestPhotos(parkId));
 		igApi.getParkPhotos(apiKey, parkId)
 		.then(
-			res => {dispatch(receivePhotos(parkId, res.body.data))},
+			res => {
+				const {data, pagination:{next_url}} = res.body;
+				dispatch(receivePhotos(parkId, data, next_url))
+			},
 			err => {dispatch(requestPhotosFail(err))}
 		);
 	}
 }
 
-function requestPhotos(){
+export function fetchMorePhotos(parkId,next_url){
+	return (dispatch) =>{
+		dispatch(requestPhotos(parkId));
+		igApi.getMorePhotos(next_url)
+		.then(
+			res => {
+				const {data, pagination:{next_url}} = res.body;
+				dispatch(receivePhotos(parkId, data, next_url))
+			},
+			err => {dispatch(requestPhotosFail(err))}
+		);
+	}
+}
+
+function requestPhotos(parkId){
 	return {
-		type:REQUEST_PARK_IMGS
+		type:REQUEST_PARK_IMGS,
+		parkId
 	};
 }
 
-function receivePhotos(parkId,data){
+function receivePhotos(parkId,data, next_url){
 	return {
 		type:RECEIVE_PARK_IMGS,
 		parkId,
-		data
+		data, 
+		next_url
 	}
 }
 
@@ -190,61 +209,3 @@ export function removeLikedPhoto(photo){
 		photo
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*export function addLikedPhoto(photo){
-	return {
-		type: ADD_LIKED_PHOTO,
-		photo 
-	}
-}
-export function removeLikedPhoto(photo){
-	return {
-		type: REMOVE_LIKED_PHOTO,
-		photo
-	}
-}*/

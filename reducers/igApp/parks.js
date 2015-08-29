@@ -2,6 +2,7 @@ import parkList from './igNpsData';
 import * as ACTION_TYPES from '../../constants/igActions';
 
 const {
+  REQUEST_PARK_IMGS,
   RECEIVE_PARK_IMGS,
   RECEIVE_API_KEY,
   REQUEST_USER_INFO,
@@ -27,9 +28,19 @@ export function parks(state=parkList,action){
 }
 
 export function parkPhotos(state={},action){
+  let newData = {};
+  const {parkId,data,next_url} = action;
   switch (action.type){
+    case REQUEST_PARK_IMGS:
+      const parkData = state[parkId] || {photos:[],next_url:'',isReqeusting:true};
+      newData = {...parkData, ...{isRequesting:true}};
+      console.log('PARK_DATA', newData, parkId);
+      return {...state, ...{[parkId]:newData}};
     case RECEIVE_PARK_IMGS:
-      const newData = { [action.parkId]:action.data }
+      const newPhotos = [...state[parkId].photos, ...data];             //append new photos
+      newData = { [parkId]:
+                          {photos:newPhotos, next_url, ...{isRequesting:false} }         //overwrite next_url
+                      };
       return {...state, ...newData};
     default:
       return state;

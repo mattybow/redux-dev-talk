@@ -6,9 +6,11 @@ import * as igActions from '../../actions/igActions';
 
 function selectPhotosForPark(state,props){
 	const {parkId} = props;
-	return {
-		photoData:state.parkPhotos[parkId]
-	}
+	const parkData = state.parkPhotos[parkId];
+	const photoData = parkData ? parkData.photos : []; 
+	const next_url = parkData ? parkData.next_url : '';
+	const isRequesting = parkData ? parkData.isRequesting : false;
+	return {photoData, next_url, isRequesting};
 }
 
 class IgParkPhotoViewer{
@@ -25,9 +27,25 @@ class IgParkPhotoViewer{
 			this.fetch();
 		}
 	}
+	componentDidMount(){
+		const {fetchMorePhotos} = igActions;
+		this.intervalId = setInterval(()=>{
+			const height = document.body.scrollHeight;
+			const pxToVpBottom = window.innerHeight + document.body.scrollTop;
+			const pxLeft = height - pxToVpBottom;
+			const {dispatch, parkId, next_url, isRequesting} = this.props;
+			if(pxLeft < 300 && this.props.next_url && !isRequesting){
+				dispatch(fetchMorePhotos(parkId, next_url))
+			}
+		},12);
+	}
+	componentWillUnmount(){
+		clearInterval(this.intervalId);
+	}
 	render(){
+		console.log('PARK PHOTO VIEWER', this.props.photoData);
 		return <NeedsLogin msg="sorry, you need to login to access this portion of the app">
-			<IgPhotoViewer data={this.props.photoData || []} />
+			<IgPhotoViewer data={this.props.photoData} />
 		</NeedsLogin>
 	}
 }

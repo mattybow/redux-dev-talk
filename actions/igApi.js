@@ -27,3 +27,7 @@ export function getParkPhotos(key, parkId){
 	let url = `https://api.instagram.com/v1/locations/${parkId}/media/recent?access_token=${key}`;
 	return fetch(url);
 }
+
+export function getMorePhotos(url){
+	return fetch(url);
+}
