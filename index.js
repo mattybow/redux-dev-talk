@@ -1,15 +1,15 @@
 import React from 'react';
 import routes from './views/routes';
-import Location from 'react-router/lib/Location';
+import createLocation from 'history/lib/createLocation';
 import App from './views/app';
-import {Router} from 'react-router';
-import BrowserHistory from 'react-router/lib/BrowserHistory';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
 
-const location = new Location(document.location.pathname, document.location.search);
-Router.run(routes, location, (err, initialState)=>{
-  React.render(
-    <App initialState={initialState} history={new BrowserHistory} routes={routes}/>,
-    document.getElementById('root')
-  );
-});
+const history = createBrowserHistory();
+const location = createLocation(document.location.pathname+document.location.search);
+
+React.render(
+	<App history={history} routes={routes}/>,
+	document.getElementById('root')
+);
+
 

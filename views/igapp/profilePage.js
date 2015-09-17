@@ -3,11 +3,11 @@ import {IgProfile} from '../../components/igComps';
 
 export default class ProfilePage extends Component{
 	static contextTypes = {
-		router: PropTypes.object.isRequired
+		history: PropTypes.object.isRequired
 	};
 
 	componentWillMount(){
-		this.context.router.replaceWith('/igapp/profile/following');
+		this.context.history.replaceState(null,'/igapp/profile/following');
 	}
 	render(){
 		return <div>

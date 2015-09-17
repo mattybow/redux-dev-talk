@@ -6,8 +6,8 @@ import getParkAlias from '../../utils/removeSpaces';
 function getPark(alias,parks){
 	return parks.filter(park =>{
 		let record = getParkAlias(park.alias);
-		let regex = new RegExp(record+'$','i');
-		return alias.match(regex) ? true : false;
+		let regex = new RegExp(alias+'$','i');
+		return record.match(regex) ? true : false;
 	});
 }
 

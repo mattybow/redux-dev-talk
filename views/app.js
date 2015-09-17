@@ -16,7 +16,7 @@ const store = createStoreWithMiddleware(reducer,{});
 export default class App{
   render(){
     return (<Provider store={store}>
-      {()=><Router {...this.props.initialState} history={this.props.history} children={this.props.routes}/>}
+      {()=><Router history={this.props.history} routes={this.props.routes}/>}
     </Provider>);
   }
 }
