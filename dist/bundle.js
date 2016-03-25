@@ -58218,7 +58218,7 @@
 	      }
 	      var replacementRoute = localStorage.getItem('igAppRedirectPathAfterOath');
 	      localStorage.setItem('igAppRedirectPathAfterOath', '');
-	      router.replaceWith(replacementRoute);
+	      router.replace(replacementRoute);
 	    }
 	  }, {
 	    key: 'render',
