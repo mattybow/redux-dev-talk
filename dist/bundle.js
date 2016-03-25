@@ -69,11 +69,12 @@
 
 	var _reactRouter = __webpack_require__(264);
 
-	var _history = __webpack_require__(596);
+	var _history = __webpack_require__(597);
 
-	console.log(window.location.pathname);
+	var host = window.location.host;
+	console.log(host);
 	var history = (0, _reactRouter.useRouterHistory)(_history.createHistory)({
-		basename: window.location.pathname
+		basename: host === "mattbow.com" ? "/redux-dev-talk/" : "/"
 	});
 
 	_react2['default'].render(_react2['default'].createElement(_viewsApp2['default'], { history: history, routes: _viewsRoutes2['default'] }), document.getElementById('root'));
@@ -20516,6 +20517,7 @@
 	var AuthResult = IgPages.AuthResult;
 	var Profile = IgPages.Profile;
 	var Feed = IgPages.Feed;
+	var PrivacyPolicy = IgPages.PrivacyPolicy;
 
 	var PresentationContainer = (function () {
 	  function PresentationContainer() {
@@ -20594,6 +20596,7 @@
 	    _reactRouter.Route,
 	    { path: '/igapp', component: IgApp },
 	    _react2['default'].createElement(_reactRouter.Route, { path: '/', component: Profile }),
+	    _react2['default'].createElement(_reactRouter.Route, { path: 'pp', component: PrivacyPolicy }),
 	    _react2['default'].createElement(_reactRouter.Route, { path: 'parks', component: ParkList }),
 	    _react2['default'].createElement(_reactRouter.Route, { path: 'park/:alias', component: ParkPage }),
 	    _react2['default'].createElement(_reactRouter.Route, { path: 'authResult', component: AuthResult }),
@@ -41544,6 +41547,9 @@
 				if (this.props.authPrompt.isVisible) {
 					localStorage.setItem('igAppRedirectPathAfterOath', document.location.pathname); //so we can return user to where they originally navigated to after oath redirect
 					var oauthPath = 'https://instagram.com/oauth/authorize/?client_id=1ca62ea2e3dc4fc5a9305493e5105f85&redirect_uri=http://localhost:5000/igapp/authResult&response_type=token';
+					if (window.location.host === 'mattbow.com') {
+						oauthPath = 'https://instagram.com/oauth/authorize/?client_id=eb56dd402e0d4af38ac13297e3cf6a93&redirect_uri=http://mattbow.com/redux-dev-talk/igapp/authResult&response_type=token';
+					}
 					return _react2['default'].createElement(
 						'div',
 						{ id: 'auth-prompt' },
@@ -57681,6 +57687,10 @@
 
 	exports.Feed = _interopRequire(_igappFeed);
 
+	var _igappPrivacyPolicy = __webpack_require__(596);
+
+	exports.PrivacyPolicy = _interopRequire(_igappPrivacyPolicy);
+
 /***/ },
 /* 579 */
 /***/ function(module, exports, __webpack_require__) {
@@ -58380,6 +58390,80 @@
 
 	'use strict';
 
+	var _get = __webpack_require__(327)['default'];
+
+	var _inherits = __webpack_require__(328)['default'];
+
+	var _createClass = __webpack_require__(160)['default'];
+
+	var _classCallCheck = __webpack_require__(164)['default'];
+
+	var _interopRequireDefault = __webpack_require__(2)['default'];
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var PrivacyPolicy = (function (_Component) {
+	  _inherits(PrivacyPolicy, _Component);
+
+	  function PrivacyPolicy() {
+	    _classCallCheck(this, PrivacyPolicy);
+
+	    _get(Object.getPrototypeOf(PrivacyPolicy.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(PrivacyPolicy, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        { style: {
+	            maxWidth: 300,
+	            margin: '2em auto'
+	          } },
+	        _react2['default'].createElement(
+	          'h3',
+	          null,
+	          'Privacy Policy'
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          null,
+	          'This app is intended as an example application for redux.'
+	        ),
+	        _react2['default'].createElement('br', null),
+	        _react2['default'].createElement(
+	          'div',
+	          null,
+	          'The app requires your login to instagram in order for you to make requests from the instagram api.'
+	        ),
+	        _react2['default'].createElement('br', null),
+	        _react2['default'].createElement(
+	          'div',
+	          null,
+	          'Your data is not saved on any server.  The only thing persisted is in your browser session.'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return PrivacyPolicy;
+	})(_react.Component);
+
+	exports['default'] = PrivacyPolicy;
+	module.exports = exports['default'];
+
+/***/ },
+/* 597 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	exports.__esModule = true;
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -58416,7 +58500,7 @@
 
 	exports.useBasename = _useBasename3['default'];
 
-	var _useBeforeUnload2 = __webpack_require__(597);
+	var _useBeforeUnload2 = __webpack_require__(598);
 
 	var _useBeforeUnload3 = _interopRequireDefault(_useBeforeUnload2);
 
@@ -58436,13 +58520,13 @@
 
 	// deprecated
 
-	var _enableBeforeUnload2 = __webpack_require__(598);
+	var _enableBeforeUnload2 = __webpack_require__(599);
 
 	var _enableBeforeUnload3 = _interopRequireDefault(_enableBeforeUnload2);
 
 	exports.enableBeforeUnload = _enableBeforeUnload3['default'];
 
-	var _enableQueries2 = __webpack_require__(599);
+	var _enableQueries2 = __webpack_require__(600);
 
 	var _enableQueries3 = _interopRequireDefault(_enableQueries2);
 
@@ -58451,7 +58535,7 @@
 	exports.createLocation = createLocation;
 
 /***/ },
-/* 597 */
+/* 598 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -58568,7 +58652,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 598 */
+/* 599 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58581,7 +58665,7 @@
 
 	var _deprecate2 = _interopRequireDefault(_deprecate);
 
-	var _useBeforeUnload = __webpack_require__(597);
+	var _useBeforeUnload = __webpack_require__(598);
 
 	var _useBeforeUnload2 = _interopRequireDefault(_useBeforeUnload);
 
@@ -58589,7 +58673,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 599 */
+/* 600 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
