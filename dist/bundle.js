@@ -38765,7 +38765,7 @@
 
 				var parkParam = (0, _utilsRemoveSpaces2['default'])(alias);
 				var parkUrl = '/igapp/park/' + parkParam;
-				var parkImgPath = imgPath ? imgPath : "../assets/acadia-national-park.jpg";
+				var parkImgPath = imgPath ? imgPath : "https://s3.amazonaws.com/reduxparks/acadia-national-park.jpg";
 				return _react2['default'].createElement(
 					'div',
 					{ className: 'park-list-item' },
