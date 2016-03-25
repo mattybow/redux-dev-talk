@@ -5,6 +5,19 @@ import Slide from '../components/slide';
 import NotFound from './notFound';
 const {LEFT, RIGHT, UP, DOWN} = {LEFT:37,RIGHT:39,UP:38,DOWN:40};
 
+class NoMobileMessage extends React.Component{
+  render(){
+    return <div style={{
+        marginTop:'2em',
+        textAlign:'center',
+        padding:'2em'
+      }}>
+      <h3 style={{fontFamily:'monospace'}}>sorry</h3>
+      <div style={{lineHeight:'1.5em'}}>this presentation requires arrow keys to work, please view on a laptop or desktop computer</div>
+    </div>
+  }
+}
+
 
 @connect(state=>({
   slides:state.slides
@@ -69,6 +82,9 @@ export default class Presentation{
   }
   render(){
     //console.log(this.props);
+    if('ontouchstart' in window){
+      return <NoMobileMessage/>
+    }
     const currentSlide = this.getCurSlide();
     return (<div id="presentation" style={{width:'100%',height:'100%'}}>
       <Slide data={this.props.slides[currentSlide]}/>
