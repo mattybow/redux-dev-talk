@@ -7,7 +7,7 @@ export default class AuthResult extends Component{
     store: PropTypes.object.isRequired
   };
 
-  
+
   componentWillMount(){
     const {router, store} = this.context;
     const {setApiKey} = igActions;
@@ -19,7 +19,7 @@ export default class AuthResult extends Component{
     }
     const replacementRoute = localStorage.getItem('igAppRedirectPathAfterOath');
     localStorage.setItem('igAppRedirectPathAfterOath','');
-    router.replaceWith(replacementRoute);
+    router.replace(replacementRoute);
   }
   render(){
     return <div></div>;
