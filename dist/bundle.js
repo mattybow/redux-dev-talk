@@ -71,6 +71,7 @@
 
 	var _history = __webpack_require__(596);
 
+	console.log(window.location.pathname);
 	var history = (0, _reactRouter.useRouterHistory)(_history.createHistory)({
 		basename: window.location.pathname
 	});
