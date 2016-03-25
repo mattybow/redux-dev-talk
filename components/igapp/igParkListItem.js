@@ -9,9 +9,9 @@ export default class IgParkListItem{
 		const {parkData:{alias,city,state,imgPath,id},isFollowing }= this.props;
 		const parkParam = getParkAlias(alias);
 		const parkUrl = `/igapp/park/${parkParam}`;
-		const parkImgPath = imgPath ? imgPath : "../assets/acadia-national-park.jpg";
+		const parkImgPath = imgPath ? imgPath : "https://s3.amazonaws.com/reduxparks/acadia-national-park.jpg";
 		return (<div className="park-list-item">
-			
+
 			<div className="igListItemImg">
 				<Link to={parkUrl}>
 					<IgImg src={parkImgPath} useBgImg={true}/>
@@ -26,7 +26,7 @@ export default class IgParkListItem{
 					<IgFollowButton parkId={id} size="sm" isFollowing={isFollowing}/>
 				</div>
 			</div>
-			
+
 		</div>);
 	}
 }
