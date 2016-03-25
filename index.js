@@ -3,9 +3,11 @@ import routes from './views/routes';
 import App from './views/app';
 import { useRouterHistory } from 'react-router'
 import {createHistory} from 'history';
-console.log(window.location.pathname);
+
+const host = window.location.host;
+console.log(host);
 const history = useRouterHistory(createHistory)({
-  basename: window.location.pathname
+  basename: host === "mattbow.com" ? "/redux-dev-talk/" : "/"
 })
 
 React.render(
