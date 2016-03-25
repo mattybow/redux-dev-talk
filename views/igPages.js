@@ -4,3 +4,4 @@ export {default as ParkPage} from './igapp/parkPage';
 export {default as AuthResult} from './igapp/authResult';
 export {default as Profile} from './igapp/profilePage';
 export {default as Feed} from './igapp/feed';
+export {default as PrivacyPolicy} from './igapp/privacyPolicy';

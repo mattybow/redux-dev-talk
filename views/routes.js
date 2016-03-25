@@ -12,7 +12,8 @@ const {
     ParkPage,
     AuthResult,
     Profile,
-    Feed
+    Feed,
+    PrivacyPolicy
   } = IgPages;
 
 
@@ -49,6 +50,7 @@ export default (
     </Route>
     <Route path="/igapp" component={IgApp}>
       <Route path="/" component={Profile} />
+      <Route path="pp" component={PrivacyPolicy}/>
       <Route path="parks" component={ParkList} />
       <Route path="park/:alias" component={ParkPage} />
       <Route path="authResult" component={AuthResult} />
