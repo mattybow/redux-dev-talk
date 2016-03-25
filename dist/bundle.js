@@ -29453,6 +29453,10 @@
 
 	'use strict';
 
+	var _get = __webpack_require__(322)['default'];
+
+	var _inherits = __webpack_require__(323)['default'];
+
 	var _createClass = __webpack_require__(160)['default'];
 
 	var _classCallCheck = __webpack_require__(164)['default'];
@@ -29471,7 +29475,7 @@
 
 	var _redux = __webpack_require__(173);
 
-	var _componentsSlide = __webpack_require__(322);
+	var _componentsSlide = __webpack_require__(330);
 
 	var _componentsSlide2 = _interopRequireDefault(_componentsSlide);
 
@@ -29484,6 +29488,42 @@
 	var RIGHT = _LEFT$RIGHT$UP$DOWN.RIGHT;
 	var UP = _LEFT$RIGHT$UP$DOWN.UP;
 	var DOWN = _LEFT$RIGHT$UP$DOWN.DOWN;
+
+	var NoMobileMessage = (function (_React$Component) {
+	  _inherits(NoMobileMessage, _React$Component);
+
+	  function NoMobileMessage() {
+	    _classCallCheck(this, NoMobileMessage);
+
+	    _get(Object.getPrototypeOf(NoMobileMessage.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(NoMobileMessage, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        { style: {
+	            marginTop: '2em',
+	            textAlign: 'center',
+	            padding: '2em'
+	          } },
+	        _react2['default'].createElement(
+	          'h3',
+	          { style: { fontFamily: 'monospace' } },
+	          'sorry'
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          { style: { lineHeight: '1.5em' } },
+	          'this presentation requires arrow keys to work, please view on a laptop or desktop computer'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return NoMobileMessage;
+	})(_react2['default'].Component);
 
 	var Presentation = (function () {
 	  function Presentation() {
@@ -29565,6 +29605,9 @@
 	    key: 'render',
 	    value: function render() {
 	      //console.log(this.props);
+	      if ('ontouchstart' in window) {
+	        return _react2['default'].createElement(NoMobileMessage, null);
+	      }
 	      var currentSlide = this.getCurSlide();
 	      return _react2['default'].createElement(
 	        'div',
@@ -29597,6 +29640,150 @@
 /* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var _Object$getOwnPropertyDescriptor = __webpack_require__(209)["default"];
+
+	exports["default"] = function get(_x, _x2, _x3) {
+	  var _again = true;
+
+	  _function: while (_again) {
+	    var object = _x,
+	        property = _x2,
+	        receiver = _x3;
+	    desc = parent = getter = undefined;
+	    _again = false;
+	    if (object === null) object = Function.prototype;
+
+	    var desc = _Object$getOwnPropertyDescriptor(object, property);
+
+	    if (desc === undefined) {
+	      var parent = Object.getPrototypeOf(object);
+
+	      if (parent === null) {
+	        return undefined;
+	      } else {
+	        _x = parent;
+	        _x2 = property;
+	        _x3 = receiver;
+	        _again = true;
+	        continue _function;
+	      }
+	    } else if ("value" in desc) {
+	      return desc.value;
+	    } else {
+	      var getter = desc.get;
+
+	      if (getter === undefined) {
+	        return undefined;
+	      }
+
+	      return getter.call(receiver);
+	    }
+	  }
+	};
+
+	exports.__esModule = true;
+
+/***/ },
+/* 323 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _Object$create = __webpack_require__(324)["default"];
+
+	var _Object$setPrototypeOf = __webpack_require__(326)["default"];
+
+	exports["default"] = function (subClass, superClass) {
+	  if (typeof superClass !== "function" && superClass !== null) {
+	    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+	  }
+
+	  subClass.prototype = _Object$create(superClass && superClass.prototype, {
+	    constructor: {
+	      value: subClass,
+	      enumerable: false,
+	      writable: true,
+	      configurable: true
+	    }
+	  });
+	  if (superClass) _Object$setPrototypeOf ? _Object$setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	};
+
+	exports.__esModule = true;
+
+/***/ },
+/* 324 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(325), __esModule: true };
+
+/***/ },
+/* 325 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(163);
+	module.exports = function create(P, D){
+	  return $.create(P, D);
+	};
+
+/***/ },
+/* 326 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(327), __esModule: true };
+
+/***/ },
+/* 327 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(328);
+	module.exports = __webpack_require__(202).Object.setPrototypeOf;
+
+/***/ },
+/* 328 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.3.19 Object.setPrototypeOf(O, proto)
+	var $def = __webpack_require__(200);
+	$def($def.S, 'Object', {setPrototypeOf: __webpack_require__(329).set});
+
+/***/ },
+/* 329 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Works with __proto__ only. Old v8 can't work with null proto objects.
+	/* eslint-disable no-proto */
+	var getDesc  = __webpack_require__(163).getDesc
+	  , isObject = __webpack_require__(241)
+	  , anObject = __webpack_require__(240);
+	var check = function(O, proto){
+	  anObject(O);
+	  if(!isObject(proto) && proto !== null)throw TypeError(proto + ": can't set as prototype!");
+	};
+	module.exports = {
+	  set: Object.setPrototypeOf || ('__proto__' in {} // eslint-disable-line
+	    ? function(buggy, set){
+	        try {
+	          set = __webpack_require__(236)(Function.call, getDesc(Object.prototype, '__proto__').set, 2);
+	          set({}, []);
+	        } catch(e){ buggy = true; }
+	        return function setPrototypeOf(O, proto){
+	          check(O, proto);
+	          if(buggy)O.__proto__ = proto;
+	          else set(O, proto);
+	          return O;
+	        };
+	      }()
+	    : undefined),
+	  check: check
+	};
+
+/***/ },
+/* 330 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var _createClass = __webpack_require__(160)['default'];
@@ -29615,15 +29802,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(323);
+	var _classnames = __webpack_require__(331);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _marked = __webpack_require__(324);
+	var _marked = __webpack_require__(332);
 
 	var _marked2 = _interopRequireDefault(_marked);
 
-	var _slideIndex = __webpack_require__(325);
+	var _slideIndex = __webpack_require__(333);
 
 	var slideComponents = _interopRequireWildcard(_slideIndex);
 
@@ -29697,7 +29884,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 323 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -29752,7 +29939,7 @@
 
 
 /***/ },
-/* 324 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -31044,7 +31231,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 325 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31055,7 +31242,7 @@
 	  value: true
 	});
 
-	var _testComp = __webpack_require__(326);
+	var _testComp = __webpack_require__(334);
 
 	exports.testComp = _interopRequire(_testComp);
 
@@ -31100,7 +31287,7 @@
 	exports.reducersToStore = _interopRequire(_reducersToStore);
 
 /***/ },
-/* 326 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31109,9 +31296,9 @@
 
 	var _classCallCheck = __webpack_require__(164)['default'];
 
-	var _get = __webpack_require__(327)['default'];
+	var _get = __webpack_require__(322)['default'];
 
-	var _inherits = __webpack_require__(328)['default'];
+	var _inherits = __webpack_require__(323)['default'];
 
 	var _interopRequireDefault = __webpack_require__(2)['default'];
 
@@ -31201,150 +31388,6 @@
 
 	exports['default'] = TestCompContainer;
 	module.exports = exports['default'];
-
-/***/ },
-/* 327 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _Object$getOwnPropertyDescriptor = __webpack_require__(209)["default"];
-
-	exports["default"] = function get(_x, _x2, _x3) {
-	  var _again = true;
-
-	  _function: while (_again) {
-	    var object = _x,
-	        property = _x2,
-	        receiver = _x3;
-	    desc = parent = getter = undefined;
-	    _again = false;
-	    if (object === null) object = Function.prototype;
-
-	    var desc = _Object$getOwnPropertyDescriptor(object, property);
-
-	    if (desc === undefined) {
-	      var parent = Object.getPrototypeOf(object);
-
-	      if (parent === null) {
-	        return undefined;
-	      } else {
-	        _x = parent;
-	        _x2 = property;
-	        _x3 = receiver;
-	        _again = true;
-	        continue _function;
-	      }
-	    } else if ("value" in desc) {
-	      return desc.value;
-	    } else {
-	      var getter = desc.get;
-
-	      if (getter === undefined) {
-	        return undefined;
-	      }
-
-	      return getter.call(receiver);
-	    }
-	  }
-	};
-
-	exports.__esModule = true;
-
-/***/ },
-/* 328 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _Object$create = __webpack_require__(329)["default"];
-
-	var _Object$setPrototypeOf = __webpack_require__(331)["default"];
-
-	exports["default"] = function (subClass, superClass) {
-	  if (typeof superClass !== "function" && superClass !== null) {
-	    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-	  }
-
-	  subClass.prototype = _Object$create(superClass && superClass.prototype, {
-	    constructor: {
-	      value: subClass,
-	      enumerable: false,
-	      writable: true,
-	      configurable: true
-	    }
-	  });
-	  if (superClass) _Object$setPrototypeOf ? _Object$setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	};
-
-	exports.__esModule = true;
-
-/***/ },
-/* 329 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(330), __esModule: true };
-
-/***/ },
-/* 330 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var $ = __webpack_require__(163);
-	module.exports = function create(P, D){
-	  return $.create(P, D);
-	};
-
-/***/ },
-/* 331 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(332), __esModule: true };
-
-/***/ },
-/* 332 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(333);
-	module.exports = __webpack_require__(202).Object.setPrototypeOf;
-
-/***/ },
-/* 333 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 19.1.3.19 Object.setPrototypeOf(O, proto)
-	var $def = __webpack_require__(200);
-	$def($def.S, 'Object', {setPrototypeOf: __webpack_require__(334).set});
-
-/***/ },
-/* 334 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Works with __proto__ only. Old v8 can't work with null proto objects.
-	/* eslint-disable no-proto */
-	var getDesc  = __webpack_require__(163).getDesc
-	  , isObject = __webpack_require__(241)
-	  , anObject = __webpack_require__(240);
-	var check = function(O, proto){
-	  anObject(O);
-	  if(!isObject(proto) && proto !== null)throw TypeError(proto + ": can't set as prototype!");
-	};
-	module.exports = {
-	  set: Object.setPrototypeOf || ('__proto__' in {} // eslint-disable-line
-	    ? function(buggy, set){
-	        try {
-	          set = __webpack_require__(236)(Function.call, getDesc(Object.prototype, '__proto__').set, 2);
-	          set({}, []);
-	        } catch(e){ buggy = true; }
-	        return function setPrototypeOf(O, proto){
-	          check(O, proto);
-	          if(buggy)O.__proto__ = proto;
-	          else set(O, proto);
-	          return O;
-	        };
-	      }()
-	    : undefined),
-	  check: check
-	};
 
 /***/ },
 /* 335 */
@@ -31539,9 +31582,9 @@
 
 	'use strict';
 
-	var _get = __webpack_require__(327)['default'];
+	var _get = __webpack_require__(322)['default'];
 
-	var _inherits = __webpack_require__(328)['default'];
+	var _inherits = __webpack_require__(323)['default'];
 
 	var _createClass = __webpack_require__(160)['default'];
 
@@ -42857,9 +42900,9 @@
 
 	var _classCallCheck = __webpack_require__(164)['default'];
 
-	var _get = __webpack_require__(327)['default'];
+	var _get = __webpack_require__(322)['default'];
 
-	var _inherits = __webpack_require__(328)['default'];
+	var _inherits = __webpack_require__(323)['default'];
 
 	var _extends = __webpack_require__(249)['default'];
 
@@ -43080,9 +43123,9 @@
 
 	'use strict';
 
-	var _get = __webpack_require__(327)['default'];
+	var _get = __webpack_require__(322)['default'];
 
-	var _inherits = __webpack_require__(328)['default'];
+	var _inherits = __webpack_require__(323)['default'];
 
 	var _createClass = __webpack_require__(160)['default'];
 
@@ -57697,9 +57740,9 @@
 
 	'use strict';
 
-	var _get = __webpack_require__(327)['default'];
+	var _get = __webpack_require__(322)['default'];
 
-	var _inherits = __webpack_require__(328)['default'];
+	var _inherits = __webpack_require__(323)['default'];
 
 	var _createClass = __webpack_require__(160)['default'];
 
@@ -58169,9 +58212,9 @@
 
 	'use strict';
 
-	var _get = __webpack_require__(327)['default'];
+	var _get = __webpack_require__(322)['default'];
 
-	var _inherits = __webpack_require__(328)['default'];
+	var _inherits = __webpack_require__(323)['default'];
 
 	var _createClass = __webpack_require__(160)['default'];
 
@@ -58246,9 +58289,9 @@
 
 	'use strict';
 
-	var _get = __webpack_require__(327)['default'];
+	var _get = __webpack_require__(322)['default'];
 
-	var _inherits = __webpack_require__(328)['default'];
+	var _inherits = __webpack_require__(323)['default'];
 
 	var _createClass = __webpack_require__(160)['default'];
 
@@ -58310,9 +58353,9 @@
 
 	'use strict';
 
-	var _get = __webpack_require__(327)['default'];
+	var _get = __webpack_require__(322)['default'];
 
-	var _inherits = __webpack_require__(328)['default'];
+	var _inherits = __webpack_require__(323)['default'];
 
 	var _createClass = __webpack_require__(160)['default'];
 
@@ -58390,9 +58433,9 @@
 
 	'use strict';
 
-	var _get = __webpack_require__(327)['default'];
+	var _get = __webpack_require__(322)['default'];
 
-	var _inherits = __webpack_require__(328)['default'];
+	var _inherits = __webpack_require__(323)['default'];
 
 	var _createClass = __webpack_require__(160)['default'];
 
