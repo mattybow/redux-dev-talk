@@ -1,15 +1,14 @@
 import React from 'react';
 import routes from './views/routes';
-import createLocation from 'history/lib/createLocation';
 import App from './views/app';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
+import { useRouterHistory } from 'react-router'
+import {createHistory} from 'history';
 
-const history = createBrowserHistory();
-const location = createLocation(document.location.pathname+document.location.search);
+const history = useRouterHistory(createHistory)({
+  basename: window.location.pathname
+})
 
 React.render(
 	<App history={history} routes={routes}/>,
 	document.getElementById('root')
 );
-
-

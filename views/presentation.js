@@ -11,7 +11,7 @@ const {LEFT, RIGHT, UP, DOWN} = {LEFT:37,RIGHT:39,UP:38,DOWN:40};
 }))
 export default class Presentation{
   static contextTypes = {
-    history: PropTypes.object.isRequired,
+    router: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired
   };
   // componentWillMount(){
@@ -60,8 +60,8 @@ export default class Presentation{
     if(curSlide !== nextSlide) this.goTo(nextSlide);
   }
   goTo(slide){
-    const {history} = this.context;
-    history.pushState(null, '/slide/'+slide);
+    const {router} = this.context;
+    router.push('/slide/'+slide);
   }
   getCurSlide(){
     let slide = this.props.params.currentSlide || 0;

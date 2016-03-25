@@ -60,7 +60,7 @@ var ThreadStore = assign({}, EventEmitter.prototype, {
 
   emitChange() {},        //emits change events
 
-  bindViewHandlers(){},   //exposes method for views to bind handlers 
+  bindViewHandlers(){},   //exposes method for views to bind handlers
 
   getMethods(id)          //exposes methods for views to get data
 
@@ -282,7 +282,7 @@ connect(select)(Component)
 \`\`\`
 
 - links component to store
-- \`connect\`'s first arg is a (state,props) => {} 
+- \`connect\`'s first arg is a (state,props) => {}
 - allows you to customize the state your component sees
 - injects the result into props
 - this is what \`shouldComponentUpdate\` sees
@@ -316,7 +316,7 @@ connect(select)(Component)
   </p>
 </li>
 <li>
-  <img src="https://pbs.twimg.com/profile_images/615680132565504000/EIpgSD2K_400x400.png" alt="" />
+  <img src="https://pbs.twimg.com/profile_images/446356636710363136/OYIaJ1KK.png" alt="" />
   <p>
   [@reactjs](https://twitter.com/reactjs)<br>
   reactjs on twitter
@@ -348,7 +348,7 @@ connect(select)(Component)
   <b>Reducers</b>
   <div>reducers are pure functions that return a transformed copy of a portion of the state tree in response to an action</div>
 </li>
-</ul> 
+</ul>
 `,
   reduxReferences:`
 ## Redux References
