@@ -58261,7 +58261,7 @@
 	      }
 	      var replacementRoute = localStorage.getItem('igAppRedirectPathAfterOath');
 	      localStorage.setItem('igAppRedirectPathAfterOath', '');
-	      router.replace(replacementRoute);
+	      router.replace(replacementRoute.replace(/^\/redux\-dev\-talk/, ''));
 	    }
 	  }, {
 	    key: 'render',
